@@ -1,0 +1,248 @@
+<!-- Made by LunarXAstro#8202 Charlie Deschamps -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="icon" type="image/png" href="logo.png" />
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap");
+
+      *:before,
+      *:after {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #ffffff;
+        font-family: "Poppins", sans-serif;
+      }
+      .background {
+        width: 430px;
+        height: 520px;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+      }
+      .background .shape {
+        height: 200px;
+        width: 200px;
+        position: absolute;
+        border-radius: 50%;
+      }
+      .shape:first-child {
+        background: linear-gradient(#1845ad, #23a2f6);
+        left: -80px;
+        top: -80px;
+      }
+      .shape:last-child {
+        background: linear-gradient(to right, #ff512f, #f09819);
+        right: -30px;
+        bottom: -80px;
+      }
+      .container {
+        height: 520px;
+        width: 400px;
+        background-color: rgba(40, 73, 218, 0.959);
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        border-radius: 10px;   
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        padding: 50px 35px;
+      }
+      .container * {
+        font-family: "Poppins", sans-serif;
+        color: #ffffff;
+        letter-spacing: 0.5px;
+        outline: none;
+        border: none;
+      }
+      .container h3 {
+        font-size: 32px;
+        font-weight: 500;
+        line-height: 42px;
+        text-align: center;
+      }
+
+      label {
+        display: block;
+        margin-top: 30px;
+        font-size: 16px;
+        font-weight: 500;
+      }
+      input {
+        display: block;
+        height: 50px;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.07);
+        border-radius: 3px;
+        padding: 0 10px;
+        margin-top: 8px;
+        font-size: 14px;
+        font-weight: 300;
+      }
+      ::placeholder {
+        color: #e5e5e5;
+      }
+      #btn {
+        margin-top: 50px;
+        width: 100%;
+        background-color: #8c70f0;
+        color: #ffff;
+        padding: 15px 0;
+        font-size: 18px;
+        font-weight: 600;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .social {
+        margin-top: 30px;
+        display: flex;
+      }
+      .social div {
+        background: red;
+        width: 150px;
+        border-radius: 3px;
+        padding: 5px 10px 10px 5px;
+        background-color: rgba(255, 255, 255, 0.27);
+        color: #eaf0fb;
+        text-align: center;
+      }
+      .social div:hover {
+        background-color: rgba(255, 255, 255, 0.47);
+      }
+      .social .fb {
+        margin-left: 25px;
+      }
+      .social i {
+        margin-right: 4px;
+      }
+
+      .msg-box {
+        display: block;
+        height: auto;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.07);
+        border-radius: 3px;
+        padding: 0 15px;
+        margin-top: 15px;
+        font-size: 14px;
+        font-weight: 300;
+      }
+      .msg-box h2 {
+        padding-top: 8px;
+      }
+
+      .msg-box p {
+        padding: auto;
+        margin: auto;
+      }
+
+      .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0); /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+      }
+
+      /* Modal Content/Box */
+      .modal-content {
+        margin: 15% auto; /* 15% from the top and centered */
+        padding: 20px;
+        color: white;
+        width: 80%; /* Could be more or less, depending on screen size */
+      }
+
+      /* The Close Button */
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .modal-content h1 {
+        font-size: 25px;
+      }
+    </style>
+    <title>Ma Banque</title>
+  </head>
+  <body>
+    <div class="container">
+      <h3>S'inscrire sur MaBanque</h3>
+
+      <label for="username">Nom Prénom</label>
+      <input
+        type=""
+        placeholder="John Dupont"
+        id="namesurname"
+        readonly
+      />
+
+      <label for="username">Adresse email</label>
+      <input
+        type=""
+        placeholder="john.dupont@gmail.com"
+        id="username"
+        readonly
+      />
+
+      <label for="password">Mot de passe</label>
+      <input type="text" placeholder="Mot de Passe" id="in" />
+
+
+      <button id="btn">Inscription</button>
+      <!-- <div class="social">
+        <div><button class="go" id="googlebtn">Google</button></div>
+      </div> -->
+      >
+    </div>
+
+    <!-- Popup -->
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <span class="close"></span>
+        <h1 id="title" style="font-size: 52px"></h1>
+        <p id="text" style="font-size: 30px"></p>
+      </div>
+    </div>
+
+    <div class="version">
+      <h5 style="    
+      position:absolute;
+      bottom:0;
+      right:24px;"
+      >V2.0 By LunarXAstro#8202</h3>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
